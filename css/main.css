@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Roboto', sans-serif; }
+
+.container {
+  height: 100vh; }
+  .container header {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; }
+    .container header .container-buscar {
+      display: flex;
+      width: 100%;
+      justify-content: center; }
+      .container header .container-buscar .input-buscar {
+        width: 30%;
+        border: none;
+        border-bottom: 1px solid #232323;
+        padding: 0.1rem 0.3rem;
+        outline: none;
+        transition: .4s; }
+      .container header .container-buscar .input-buscar:hover {
+        transform: scale(0.99); }
+      .container header .container-buscar .input-buscar:focus {
+        transform: scale(0.99); }
+      .container header .container-buscar .button-buscar {
+        padding: 0.1rem 0.5rem;
+        margin: 0rem 0.5rem;
+        border-bottom: 1px solid #232323; }
+        .container header .container-buscar .button-buscar img {
+          opacity: .8;
+          transition: .5s; }
+        .container header .container-buscar .button-buscar img:hover {
+          cursor: pointer;
+          transform: scale(1.07);
+          opacity: 1; }
+      .container header .container-buscar .button-buscar:hover {
+        cursor: pointer; }
+    .container header nav ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%; }
+      .container header nav ul li {
+        list-style: none;
+        margin: 0rem 1rem;
+        transition: .5s; }
+        .container header nav ul li a {
+          text-decoration: none;
+          color: black;
+          opacity: .5;
+          transition: .5s; }
+        .container header nav ul li a:hover {
+          opacity: 1; }
+      .container header nav ul li:hover {
+        transform: scale(1.07); }
+  .container main {
+    padding: 2rem;
+    height: 80%; }
+    .container main .container-equipos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 75%; }
+      .container main .container-equipos .none {
+        display: none; }
+      .container main .container-equipos .equipo {
+        width: 350px;
+        height: 350px;
+        border-radius: 3px;
+        transition: .7s;
+        animation-name: aparecer;
+        animation-duration: 1.3s; }
+        .container main .container-equipos .equipo img {
+          height: 100%;
+          width: 100%; }
+      .container main .container-equipos .equipo:hover {
+        cursor: pointer;
+        transform: scale(1.1); }
+
+@keyframes aparecer {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+    .container main .container-buttons {
+      width: 100%;
+      height: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; }
+      .container main .container-buttons .button {
+        width: 1.3rem;
+        height: 1.3rem;
+        opacity: .5;
+        border-radius: 100%;
+        margin: 0rem 3rem;
+        transition: .7s;
+        background-color: black; }
+      .container main .container-buttons .button:hover {
+        opacity: .8;
+        cursor: pointer;
+        transform: scale(1.2); }
+  .container footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%; }
+    .container footer .red-social {
+      margin: 0rem 1rem;
+      transition: 0.6s; }
+      .container footer .red-social img {
+        height: 3.5rem; }
+    .container footer .red-social:hover {
+      cursor: pointer;
+      transform: scale(1.1); }
