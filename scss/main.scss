@@ -7,6 +7,7 @@
 
 .container{
     height: 100vh;
+    background-color: rgb(255, 255, 255);
     header{
         padding: 1.5rem;
         display: flex;
@@ -48,34 +49,96 @@
                 cursor: pointer;
             }
         }
+        .carrito-menu{
+            color: black;
+            opacity: .5;
+            transition: .5s;
+            width: 2rem;
+            height: 2rem;
+            margin: 0rem .5rem;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .carrito-menu:hover{
+            opacity: 1;
+            transform: scale(1.09);
+            cursor: pointer;
+        }
+        .btn-menu{
+            color: black;
+            opacity: .5;
+            transition: .5s;
+            width: 2rem;
+            height: 2rem;
+            margin: 0rem .5rem;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .btn-menu:hover{
+            opacity: 1;
+            transform: scale(1.09);
+            cursor: pointer;
+        }
         nav{
-            ul{
+            position: fixed;
+            top: 0px;
+            background-color: black;
+            opacity: .8;
+            height: 100%;
+            width: 100%;
+            transition: .7s;
+            animation-name: mostar;
+            animation-duration: 1.3s;
+            ul{    
                 display: flex;
+                flex-direction: column;
+                align-content: center;
                 justify-content: center;
-                align-items: center;
                 height: 100%;
                 li{
+                    text-align: center;
                     list-style: none;
-                    margin: 0rem 1rem;
+                    margin: 1rem 0rem;
                     transition: .5s;
+                    opacity: 1;
                     a{
                         text-decoration: none;
-                        color: black;
-                        opacity: .5;
-                        transition: .5s;
+                        color: white;
+                        font-size: 3rem;
+                        font-weight: 100;
                     }
-                    a:hover{
-                        opacity: 1;
+                    p{
+                        text-decoration: none;
+                        color: white;
+                        font-size: 3rem;
+                        font-weight: 100;
+                        cursor: pointer;
                     }
                 }
                 li:hover{
-                    transform: scale(1.07);
+                    transform: scale(1.08);
                 }
+                
             }
+        }
+        @keyframes mostar{
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: .8;
+            }
+        }
+        .ocultar{
+            display: none;
         }
     }
     
-    main{
+    .main-index{
         padding: 2rem;
         height: 80%;
         .container-equipos{
@@ -130,6 +193,64 @@
                 opacity: .8;
                 cursor: pointer;
                 transform: scale(1.2);
+            }
+        }
+    }
+
+    .main-zapatillas{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0rem;
+        gap: 3rem;
+        .modelos{
+            border: 1px solid rgb(75, 75, 75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0px 0px 10px 0px rgb(135, 135, 135);
+            width: 352px;
+            height: 477px;
+            img{
+                width: 350px;
+                height: 350px;
+            }
+            p{
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            .comprar{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 40%;
+                margin: 1.5rem 0rem 2rem 0rem;
+                input{
+                    width: 5rem;
+                    height: 2rem;
+                    background-color: black;
+                    border: 1px solid black;
+                    color: white;
+                    transition: .8s;
+                    
+                }
+                input:hover{
+                    background-color: white;
+                    color: black;
+                    border: 1px solid white;
+                    cursor: pointer;
+                    transform: scale(1.1);
+                }
+                img{
+                    width: 2rem;
+                    height: 2rem;
+                    transition: .6s;
+                }
+                img:hover{
+                    cursor: pointer;
+                    transform: scale(1.1);
+                }
             }
         }
     }
