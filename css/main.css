@@ -68,8 +68,49 @@
       opacity: 1;
       transform: scale(1.09);
       cursor: pointer; }
+    .container header .container-productoCarrito {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
+      border: 1px solid #4b4b4b;
+      box-shadow: 0px 0px 10px 0px #878787;
+      background-color: white;
+      position: absolute;
+      top: 4rem;
+      right: 1rem;
+      z-index: 1;
+      animation-name: mostar;
+      animation-duration: 1s; }
+      .container header .container-productoCarrito .productoCarrito {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 1rem;
+        width: 280px;
+        border-bottom: 1px solid #4b4b4b; }
+        .container header .container-productoCarrito .productoCarrito img {
+          width: 70px;
+          height: 70px; }
+      .container header .container-productoCarrito input {
+        width: 5rem;
+        height: 2rem;
+        background-color: black;
+        border: 1px solid black;
+        color: white;
+        transition: .8s;
+        margin: 1rem 0rem; }
+      .container header .container-productoCarrito input:hover {
+        background-color: white;
+        color: black;
+        border: 1px solid white;
+        cursor: pointer;
+        transform: scale(1.1); }
+    .container header .ocultarCarrito {
+      display: none; }
     .container header nav {
       position: fixed;
+      z-index: 10;
       top: 0px;
       background-color: black;
       opacity: .8;
@@ -162,6 +203,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     margin: 2rem 0rem;
     gap: 3rem; }
     .container .main-zapatillas .modelos {
@@ -171,8 +213,8 @@
       align-items: center;
       flex-direction: column;
       box-shadow: 0px 0px 10px 0px #878787;
-      width: 352px;
-      height: 477px; }
+      width: 370px;
+      height: 487px; }
       .container .main-zapatillas .modelos img {
         width: 350px;
         height: 350px; }

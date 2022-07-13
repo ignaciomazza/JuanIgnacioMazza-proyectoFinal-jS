@@ -17,7 +17,6 @@ let nav = document.querySelector('#nav');
 let cerrar = document.querySelector('#cerrar');
 
 menu.addEventListener("click", () =>{
-    console.log("click")
     nav.classList.toggle("ocultar");
 });
 

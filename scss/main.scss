@@ -83,8 +83,55 @@
             transform: scale(1.09);
             cursor: pointer;
         }
+        .container-productoCarrito{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+            border: 1px solid rgb(75, 75, 75);
+            box-shadow: 0px 0px 10px 0px rgb(135, 135, 135);
+            background-color: white;
+            position: absolute;
+            top: 4rem;
+            right: 1rem;
+            z-index: 1;
+            animation-name: mostar;
+            animation-duration: 1s;
+            .productoCarrito{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                margin: 1rem;
+                width: 280px;
+                border-bottom: 1px solid rgb(75, 75, 75);
+                img{
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+            input{
+                width: 5rem;
+                height: 2rem;
+                background-color: black;
+                border: 1px solid black;
+                color: white;
+                transition: .8s;
+                margin: 1rem 0rem;
+            }
+            input:hover{
+                background-color: white;
+                color: black;
+                border: 1px solid white;
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+        .ocultarCarrito{
+            display: none;
+        }
         nav{
             position: fixed;
+            z-index: 10;
             top: 0px;
             background-color: black;
             opacity: .8;
@@ -201,6 +248,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         margin: 2rem 0rem;
         gap: 3rem;
         .modelos{
@@ -210,8 +258,8 @@
             align-items: center;
             flex-direction: column;
             box-shadow: 0px 0px 10px 0px rgb(135, 135, 135);
-            width: 352px;
-            height: 477px;
+            width: 370px;
+            height: 487px;
             img{
                 width: 350px;
                 height: 350px;

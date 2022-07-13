@@ -18,7 +18,6 @@ let nav = document.querySelector('#nav');
 let cerrar = document.querySelector('#cerrar');
 
 menu.addEventListener("click", () =>{
-    console.log("click")
     nav.classList.toggle("ocultar");
 });
 
@@ -31,7 +30,21 @@ cerrar.addEventListener("click", () =>{
 const modelos = [];
 
 modelos.push(new modelo(modelos.length, "Under Armour Curry 9", "25000", "Stephen Curry", "../img/modelos/Curry.png", "carrito-" + modelos.length));
-modelos.push(new modelo(modelos.length, "Nike Lebron 18", "26000", "Lebron James", "../img/modelos/Curry.png", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Nike Lebron 18", "26000", "Lebron James", "../img/modelos/Lebron.webp", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Nike Kyrie 7", "30000", "Kyrie Irving", "../img/modelos/Kyrie.jpg", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Nike KD 14", "26000", "kEVIN dURANT", "../img/modelos/Durant.jpg", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Nike Zoom Freak 1", "30000", "Giannis Antetokoumpo", "../img/modelos/Giannis.jpg", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Nike PG 5", "23000", "Paul George", "../img/modelos/George.png", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Nike Kobe 5", "20000", "Kobe Bryant", "../img/modelos/Kobe.png", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Nike Cosmic Unity", "34000", "Anthony Davis", "../img/modelos/Davis.jpg", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Adidas DON Issue", "28999", "Donovan Mitchel", "../img/modelos/Mitchel.png", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Puma MB.01", "28999", "Lonzo Ball", "../img/modelos/Ball.jpg", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Puma Clyde All-Pro", "28999", "Lamelo Ball", "../img/modelos/Melo.jpg", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Adidas Harden Vol. 4", "26000", "James Harden", "../img/modelos/Harden.jpg", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "New Balance The Kawhi", "27000", "Kawhi Leonard", "../img/modelos/Kawhi.jpg", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Under Armour Embiid 1", "34899", "Kawhi Leonard", "../img/modelos/Embiid.jpg", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Jordan React Elevation", "37899", "Luka Doncic", "../img/modelos/Doncic.jpg", "carrito-" + modelos.length));
+modelos.push(new modelo(modelos.length, "Adidas D Rose 11", "24000", "Kawhi Leonard", "../img/modelos/Rose.jpg", "carrito-" + modelos.length));
 
 let zapatillas = document.getElementById("zapatillas");
 
@@ -58,21 +71,34 @@ for (let i = 0; i < bucleCarrito.length; i++) {
     carrito.push(numCarrito);
 }
 
+const containerCarrito = document.getElementById('container-productoCarrito');
+const comprarCarrito = document.getElementById('comprarCarrito');
 
-for (let i = 0; i < bucleCarrito.length; i++) {
+const carritoJSON = [];
+
+for (let i = 0; i < carrito.length; i++) {
     bucleCarrito[i].addEventListener("click", () =>{
         const agregar = modelos.find((el) => el.carrito === carrito[i].id);
-        const agregarCarrito = JSON.stringify(agregar);
-        localStorage.setItem(`producto-${i}`, agregarCarrito);
-        alert("Se ha agregado al carrito: " + agregar.nombre);
+        carritoJSON.push(agregar);
+        const agregarCarrito = JSON.stringify(carritoJSON);
+        localStorage.setItem(`carrito`, agregarCarrito);
     });
 }
 
 let mostrarCarrito = document.getElementById("carrito-menu");
 
 mostrarCarrito.addEventListener("click", () =>{
-    for (let i = 0; i < bucleCarrito.length; i++) {
-        let mostrar = JSON.parse(localStorage.getItem(`producto-${i}`));
-        alert("Su carrito contiene el siguiente producto: " + mostrar.nombre);
-    }
+    containerCarrito.classList.toggle("ocultarCarrito");
 });
+
+const llamarJSON = JSON.parse(localStorage.getItem(`carrito`));
+
+for (let i = 0; i < llamarJSON.length; i++) {
+    // const agregar = mostrar.find((el) => el.carrito === carrito[i].id);
+    const aparecerModelo = llamarJSON[i];
+    let btnCarritoChild = document.createElement("div");
+    btnCarritoChild.classList.add("productoCarrito");
+    btnCarritoChild.innerHTML = `<img src="${aparecerModelo.imagen}" alt="">
+                                 <p>${aparecerModelo.nombre}</p>`;
+    containerCarrito.appendChild(btnCarritoChild);
+}
