@@ -82,6 +82,21 @@ for (let i = 0; i < carrito.length; i++) {
         carritoJSON.push(agregar);
         const agregarCarrito = JSON.stringify(carritoJSON);
         localStorage.setItem(`carrito`, agregarCarrito);
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          Toast.fire({
+            icon: 'success',
+            title: 'Agregado al carrito'
+          })
     });
 }
 
@@ -102,3 +117,22 @@ for (let i = 0; i < llamarJSON.length; i++) {
                                  <p>${aparecerModelo.nombre}</p>`;
     containerCarrito.appendChild(btnCarritoChild);
 }
+
+//COMPRAR
+
+
+
+for (const model of modelos) {
+    let numCarrito = document.getElementById(`comprar-${model.id}`);
+    numCarrito.addEventListener("click", () =>{
+        Swal.fire({
+            title:'Lo sentimos',
+            text: 'Aún esta opcion no esta habilitada',
+            confirmButtonText: ":'("
+        })
+    });
+}
+
+
+
+
