@@ -1,0 +1,17 @@
+[
+{"id": "0", "nombre": "Under Armour Curry 9", "precio": "25000", "jugador": "Stephen Curry", "imagen": "../img/modelos/Curry.png", "carrito": "carrito-0"},
+{"id": "1", "nombre": "Nike Lebron 18", "precio": "26000", "jugador": "Lebron James", "imagen": "../img/modelos/Lebron.webp", "carrito": "carrito-1"},
+{"id": "2", "nombre": "Nike KD 14", "precio": "26000", "jugador": "Kevin Durant", "imagen": "../img/modelos/Durant.jpg", "carrito": "carrito-2"},
+{"id": "3", "nombre": "Nike Zoom Freak 1", "precio": "30000", "jugador": "Giannis Antetokoumpo", "imagen": "../img/modelos/Giannis.jpg", "carrito": "carrito-3"},
+{"id": "4", "nombre": "Nike PG 5", "precio": "23000", "jugador": "Paul George", "imagen": "../img/modelos/George.png", "carrito": "carrito-4"},
+{"id": "5", "nombre": "Nike Kobe 5", "precio": "20000", "jugador": "Kobe Bryant", "imagen": "../img/modelos/Kobe.png", "carrito": "carrito-5"},
+{"id": "6", "nombre": "Nike Cosmic Unity", "precio": "34000", "jugador": "Anthony Davis", "imagen": "../img/modelos/Davis.jpg", "carrito": "carrito-6"},
+{"id": "7", "nombre": "Adidas DON Issue", "precio": "28999", "jugador": "Donovan Mitchel", "imagen": "../img/modelos/Mitchel.png", "carrito": "carrito-7"},
+{"id": "8", "nombre": "Puma MB.01", "precio": "28999", "jugador": "Lonzo Ball", "imagen": "../img/modelos/Ball.jpg", "carrito": "carrito-8"},
+{"id": "9", "nombre": "Puma Clyde All-Pro", "precio": "28999", "jugador": "Lamelo Ball", "imagen": "../img/modelos/Melo.jpg", "carrito": "carrito-9"},
+{"id": "10", "nombre": "Adidas Harden Vol. 4", "precio": "26000", "jugador": "James Harden", "imagen": "../img/modelos/Harden.jpg", "carrito": "carrito-10"},
+{"id": "11", "nombre": "New Balance The Kawhi", "precio": "27000", "jugador": "Kawhi Leonard", "imagen": "../img/modelos/Kawhi.jpg", "carrito": "carrito-11"},
+{"id": "12", "nombre": "Under Armour Embiid 1", "precio": "34899", "jugador": "Kawhi Leonard", "imagen": "../img/modelos/Embiid.jpg", "carrito": "carrito-12"},
+{"id": "13", "nombre": "Jordan React Elevation", "precio": "37899", "jugador": "Luka Doncic", "imagen": "../img/modelos/Doncic.jpg", "carrito": "carrito-13"},
+{"id": "14", "nombre": "Adidas D Rose 11", "precio": "24000", "jugador": "Kawhi Leonard", "imagen": "../img/modelos/Rose.jpg", "carrito": "carrito-14"}
+]
