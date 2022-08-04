@@ -16,16 +16,15 @@ cerrar.addEventListener("click", () =>{
 
 const containerEquipos = document.getElementById("containerEquipos");
 
+
+
 const pedirPost = async () => {
     const resp = await fetch('./json/equipos.json')
     const data = await resp.json()
 
     data.forEach( (equipo) => {
         let contEquipos = document.createElement("div");
-        contEquipos.classList.add("equipo");
-        contEquipos.classList.add("none");
-        contEquipos.setAttribute("id", equipo.id);
-        contEquipos.innerHTML = `<img src="${equipo.imagen}" alt="">`;
+        contEquipos.innerHTML = `<img src="${equipo.imagen}" alt="" id="${equipo.id}" class="none equipo">`;
         containerEquipos.appendChild(contEquipos);
     })
 }
@@ -122,4 +121,46 @@ boton6.addEventListener("click", () => {
         let team = document.getElementById(i);
         team.classList.remove("none");
     }
+});
+
+//REDIRECCIONAR
+
+containerEquipos.addEventListener("click", e =>{
+    obtener(e);
+});
+
+const obtener = e => {
+    if(e.target.classList.contains('equipo')){
+        console.log(e.target.id);
+        localStorage.setItem(`equipo`, e.target.id);
+        window.open("pages/modelo.html", "_self");
+
+    }
+}
+
+//BUSCADOR
+
+const botonBuscador = document.getElementById('botonBuscador');
+
+const buscar = () => {
+    const buscador = document.getElementById('buscador');
+    pedirPostBuscador(buscador.value);
+}
+
+const pedirPostBuscador = async (valor) => {
+    const resp = await fetch('./json/zapatillas.json')
+    const data = await resp.json()
+
+    const objetoBuscar = [];
+    data.forEach( (modeloBuscar) => {
+        if(modeloBuscar.nombre.includes(valor)){
+            objetoBuscar.push(modeloBuscar)
+        }
+    })
+    localStorage.setItem(`buscador`, JSON.stringify(objetoBuscar));
+    window.open("pages/buscador.html", "_self");
+}
+
+botonBuscador.addEventListener("click", () =>{
+    buscar();
 });

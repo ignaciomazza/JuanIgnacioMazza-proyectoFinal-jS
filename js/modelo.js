@@ -12,15 +12,17 @@ cerrar.addEventListener("click", () =>{
     nav.classList.toggle("ocultar");
 });
 
-//MODELOS
+//MODELO
 
-let zapatillas = document.getElementById("zapatillas");
+let zapatillas = document.getElementById("modelo");
 
 const pedirPost = async () => {
     const resp = await fetch('./../json/zapatillas.json')
     const data = await resp.json()
+    const llamarJSON = JSON.parse(localStorage.getItem(`equipo`));
     data.forEach( (model) => {
-        let contModelos = document.createElement("div");
+        if(llamarJSON == model.equipo){
+            let contModelos = document.createElement("div");
         contModelos.classList.add("modelos");
         contModelos.innerHTML = `<img src="${model.imagen}" alt="">
                                 <p>${model.nombre}</p>
@@ -29,6 +31,7 @@ const pedirPost = async () => {
                                     <img src="../img/bx-cart-add.svg" alt="" class="carrito" id="${model.carrito}">
                                 </div>`;
         zapatillas.appendChild(contModelos);
+        }
     })
 }
 
@@ -64,7 +67,7 @@ const agregarCarrito = (modeloCarrito) => {
 
 let carrito = {};
 
-const modelo = document.getElementById('zapatillas');
+const modelo = document.getElementById('modelo');
 
 modelo.addEventListener("click", e =>{
     obtener(e);
@@ -114,7 +117,7 @@ const pedirPostBuscador = async (valor) => {
     const objetoBuscar = [];
     data.forEach( (modeloBuscar) => {
         if(modeloBuscar.nombre.includes(valor)){
-            objetoBuscar.push(modeloBuscar)
+            objetoBuscar.push(modeloBuscar);
         }
     })
     localStorage.setItem(`buscador`, JSON.stringify(objetoBuscar));

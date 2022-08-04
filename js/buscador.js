@@ -12,21 +12,20 @@ cerrar.addEventListener("click", () =>{
     nav.classList.toggle("ocultar");
 });
 
-//MODELOS
+//MODELO
 
-let zapatillas = document.getElementById("zapatillas");
+let zapatillas = document.getElementById("modelo");
 
 const pedirPost = async () => {
-    const resp = await fetch('./../json/zapatillas.json')
-    const data = await resp.json()
-    data.forEach( (model) => {
+    const llamarJSON = JSON.parse(localStorage.getItem(`buscador`));
+    llamarJSON.forEach( (model) => {
         let contModelos = document.createElement("div");
         contModelos.classList.add("modelos");
         contModelos.innerHTML = `<img src="${model.imagen}" alt="">
                                 <p>${model.nombre}</p>
                                 <div class="comprar">
                                     <input type="button" value="COMPRAR" name="comprar" id="comprar-${model.id}">
-                                    <img src="../img/bx-cart-add.svg" alt="" class="carrito" id="${model.carrito}">
+                                     <img src="../img/bx-cart-add.svg" alt="" class="carrito" id="${model.carrito}">
                                 </div>`;
         zapatillas.appendChild(contModelos);
     })
@@ -64,7 +63,7 @@ const agregarCarrito = (modeloCarrito) => {
 
 let carrito = {};
 
-const modelo = document.getElementById('zapatillas');
+const modelo = document.getElementById('modelo');
 
 modelo.addEventListener("click", e =>{
     obtener(e);
