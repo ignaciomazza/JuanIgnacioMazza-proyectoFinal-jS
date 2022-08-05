@@ -80,16 +80,24 @@ const obtener = e => {
 
 const mostrarCarrito = document.getElementById("carrito-menu");
 const containerCarrito = document.getElementById('container-productoCarrito');
+const containerProductos = document.getElementById('productos');
+
 
 const traerDatos = async () => {
     const llamarJSON = await JSON.parse(localStorage.getItem(`carrito`));
 
-    for (let i = 0; i < llamarJSON.length; i++) {
-        const aparecerModelo = llamarJSON[i];
-        containerCarrito.innerHTML += `<div id="${aparecerModelo.id}" class="productoCarrito none">
-                                         <img src="${aparecerModelo.imagen}" alt="">
-                                         <p>${aparecerModelo.nombre}</p>
-                                     </div>`;
+    if (llamarJSON == null) {
+        containerProductos.innerHTML = "";
+    } else {
+        containerProductos.innerHTML = "";
+
+        for (let i = 0; i < llamarJSON.length; i++) {
+            const aparecerModelo = llamarJSON[i];
+            containerProductos.innerHTML += `<div id="${aparecerModelo.id}" class="productoCarrito none">
+                                             <img src="${aparecerModelo.imagen}" alt="">
+                                             <p>${aparecerModelo.nombre}</p>
+                                         </div>`;
+        }
     }
 }
 
