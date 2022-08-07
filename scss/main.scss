@@ -314,6 +314,43 @@
         }
     }
 
+    .main-nosotros{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        .logo-nostros{
+            animation-name: agrandar;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            padding-bottom: 3rem;
+        }
+        @keyframes agrandar{
+            0%{
+                transform: scale(1);
+            }
+            50%{
+                transform: scale(1.08);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        .texto-nosotros{
+            text-align: center;
+            padding: 0rem 30rem 5rem 30rem;
+            h1{
+                font-size: 1.5rem;
+                padding: 0rem 0rem .5rem 0rem;
+            }
+            p{
+                font-size: 1.5rem;
+            }
+        }
+
+    }
+
     footer{
         display: flex;
         justify-content: center;

@@ -3,6 +3,11 @@
 let menu = document.querySelector('#menu');
 let nav = document.querySelector('#nav');
 let cerrar = document.querySelector('#cerrar');
+const logo = document.getElementById('logo');
+
+logo.addEventListener("click", () =>{
+    window.open("../index.html", "_self");
+});
 
 menu.addEventListener("click", () =>{
     nav.classList.toggle("ocultar");
@@ -11,27 +16,6 @@ menu.addEventListener("click", () =>{
 cerrar.addEventListener("click", () =>{
     nav.classList.toggle("ocultar");
 });
-
-//MODELO
-
-let zapatillas = document.getElementById("modelo");
-
-const pedirPost = async () => {
-    const llamarJSON = JSON.parse(localStorage.getItem(`buscador`));
-    llamarJSON.forEach( (model) => {
-        let contModelos = document.createElement("div");
-        contModelos.classList.add("modelos");
-        contModelos.innerHTML = `<img src="${model.imagen}" alt="">
-                                <p>${model.nombre}</p>
-                                <div class="comprar">
-                                    <input type="button" value="COMPRAR" name="comprar" id="comprar-${model.id}">
-                                     <img src="../img/bx-cart-add.svg" alt="" class="carrito" id="${model.carrito}">
-                                </div>`;
-        zapatillas.appendChild(contModelos);
-    })
-}
-
-pedirPost();
 
 //AGREGAR CARRITO
 
@@ -131,3 +115,24 @@ const pedirPostBuscador = async (valor) => {
 botonBuscador.addEventListener("click", () =>{
     buscar();
 });
+
+//MODELO
+
+let zapatillas = document.getElementById("modelo");
+
+const pedirPost = async () => {
+    const llamarJSON = JSON.parse(localStorage.getItem(`buscador`));
+    llamarJSON.forEach( (model) => {
+        let contModelos = document.createElement("div");
+        contModelos.classList.add("modelos");
+        contModelos.innerHTML = `<img src="${model.imagen}" alt="">
+                                <p>${model.nombre}</p>
+                                <div class="comprar">
+                                    <input type="button" value="COMPRAR" name="comprar" id="comprar-${model.id}">
+                                     <img src="../img/bx-cart-add.svg" alt="" class="carrito" id="${model.carrito}">
+                                </div>`;
+        zapatillas.appendChild(contModelos);
+    })
+}
+
+pedirPost();
