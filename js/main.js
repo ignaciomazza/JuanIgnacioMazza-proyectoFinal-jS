@@ -3,6 +3,11 @@
 let menu = document.querySelector('#menu');
 let nav = document.querySelector('#nav');
 let cerrar = document.querySelector('#cerrar');
+const logo = document.getElementById('logo');
+
+logo.addEventListener("click", () =>{
+    window.open("index.html", "_self");
+});
 
 menu.addEventListener("click", () =>{
     nav.classList.toggle("ocultar");
