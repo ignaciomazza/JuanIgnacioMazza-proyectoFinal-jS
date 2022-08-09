@@ -31,6 +31,8 @@ const pedirPost = async () => {
         contModelos.classList.add("modelos");
         contModelos.innerHTML = `<img src="${model.imagen}" alt="">
                                 <p>${model.nombre.toUpperCase()}</p>
+                                <div class="card-jugador">${model.jugador}</div>
+                                <div class="card-precio">$${model.precio}</div>
                                 <div class="comprar">
                                     <input type="button" value="COMPRAR" name="comprar" class="botonComprar" id="comprar-${model.id}">
                                     <img src="../img/bx-cart-add.svg" alt="" class="carrito" id="${model.carrito}">
