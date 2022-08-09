@@ -28,9 +28,9 @@ const pedirPost = async () => {
         let contModelos = document.createElement("div");
         contModelos.classList.add("modelos");
         contModelos.innerHTML = `<img src="${model.imagen}" alt="">
-                                <p>${model.nombre}</p>
+                                <p>${model.nombre.toUpperCase()}</p>
                                 <div class="comprar">
-                                    <input type="button" value="COMPRAR" name="comprar" id="comprar-${model.id}">
+                                    <input type="button" value="COMPRAR" name="comprar" class="botonComprar" id="comprar-${model.id}">
                                     <img src="../img/bx-cart-add.svg" alt="" class="carrito" id="${model.carrito}">
                                 </div>`;
         zapatillas.appendChild(contModelos);
@@ -65,6 +65,21 @@ const agregarCarrito = (modeloCarrito) => {
         const agregar = JSON.stringify(llamarJSON);
         localStorage.setItem(`carrito`, agregar);
     }
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    Toast.fire({
+        icon: 'success',
+        title: 'Agregado al carrito'
+    })
 }
 
 let carrito = {};
@@ -73,6 +88,7 @@ const modelo = document.getElementById('zapatillas');
 
 modelo.addEventListener("click", e =>{
     obtener(e);
+    comprar(e);
 });
 
 const obtener = e => {
@@ -81,12 +97,41 @@ const obtener = e => {
     }
 }
 
+//ELIMINAR CARRITO
+
+const eliminarProducto = (modeloPorducto) => {
+    const llamarJSON = JSON.parse(localStorage.getItem(`carrito`));
+    console.log(modeloPorducto.parentNode);
+    const nuevoJSON = [];
+
+    llamarJSON.forEach( (objetoEliminado) => {
+        if(objetoEliminado.id != modeloPorducto.parentNode.id){
+            nuevoJSON.push(objetoEliminado);
+        }
+    });
+
+    const agregar = JSON.stringify(nuevoJSON);
+    localStorage.setItem(`carrito`, agregar);
+    containerCarrito.classList.toggle("ocultarCarrito");
+    
+}
+
+const eliminar = e => {
+    if(e.target.classList.contains('eliminarCarrito')){
+        eliminarProducto(e.target);
+    }
+}
+
+const containerProductos = document.getElementById('productos');
+
+containerProductos.addEventListener("click", (e) =>{
+    eliminar(e)
+});
+
 //MOSTRAR CARRITO
 
 const mostrarCarrito = document.getElementById("carrito-menu");
 const containerCarrito = document.getElementById('container-productoCarrito');
-const containerProductos = document.getElementById('productos');
-
 
 const traerDatos = async () => {
     const llamarJSON = await JSON.parse(localStorage.getItem(`carrito`));
@@ -99,9 +144,10 @@ const traerDatos = async () => {
         for (let i = 0; i < llamarJSON.length; i++) {
             const aparecerModelo = llamarJSON[i];
             containerProductos.innerHTML += `<div id="${aparecerModelo.id}" class="productoCarrito none">
-                                             <img src="${aparecerModelo.imagen}" alt="">
-                                             <p>${aparecerModelo.nombre}</p>
-                                         </div>`;
+                                                <img src="${aparecerModelo.imagen}" alt="">
+                                                <p>${aparecerModelo.nombre.toUpperCase()}</p>
+                                                <input type="button" value="ELIMINAR" name="comprar" class="eliminarCarrito" id="">
+                                            </div>`;
         }
     }
 }
@@ -126,7 +172,7 @@ const pedirPostBuscador = async (valor) => {
 
     const objetoBuscar = [];
     data.forEach( (modeloBuscar) => {
-        if(modeloBuscar.nombre.includes(valor)){
+        if(modeloBuscar.nombre.includes(valor.toLowerCase())){
             objetoBuscar.push(modeloBuscar)
         }
     })
@@ -136,4 +182,38 @@ const pedirPostBuscador = async (valor) => {
 
 botonBuscador.addEventListener("click", () =>{
     buscar();
+});
+
+//COMPRAR
+
+const comprarProducto = (modeloPorducto) => {
+    Swal.fire({
+        icon: 'error',
+        title: 'Disculpe',
+        text: 'Aún no esta habilitada esta opcion!',
+        footer: '<a href="ayuda.html">Por qué ocurre esto?</a>'
+    })
+}
+
+const comprar = e => {
+    if(e.target.classList.contains('botonComprar')){
+        comprarProducto(e.target.id);
+    }
+}
+
+const btnCarritoComprar = document.getElementById('comprarCarrito');
+
+const carritoComprar = async () => {
+    const llamarJSON = await JSON.parse(localStorage.getItem(`carrito`));
+
+    Swal.fire({
+        icon: 'error',
+        title: 'Disculpe',
+        text: 'Aún no esta habilitada esta opcion!',
+        footer: '<a href="ayuda.html">Por qué ocurre esto?</a>'
+    })
+}
+
+btnCarritoComprar.addEventListener("click", () =>{
+    carritoComprar();
 });

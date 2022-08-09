@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--css-->
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!--tipografia roboto-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <div class="container">
+        <header id="header">
+            <div class="logo" id="logo">
+                <img src="../img/Logo.png" alt="">
+            </div>
+            <div class="container-buscar">
+                <input type="text" placeholder="Buscar" class="input-buscar" id="buscador" value="">
+                <div class="button-buscar" id="botonBuscador">
+                    <img src="../img/bx-search-alt-2.svg" alt="">
+                </div>
+            </div>
+            <div  class="carrito-menu" id="carrito-menu">
+                <img src="../img/bx-cart-download.svg" alt="">
+            </div>
+            <div class="btn-menu" id="menu">
+                <img src="../img/bx-menu.svg" alt="">
+            </div>
+            <nav class="menu ocultar" id="nav">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="zapatillas.html">Zapatillas</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="ayuda.html">Ayuda</a></li>
+                    <li id="cerrar"><p>Cerrar</p></li>
+                </ul>
+            </nav>
+            <div class="container-productoCarrito ocultarCarrito" id="container-productoCarrito">
+                <div id="productos">
+
+                </div>
+                <input type="button" value="COMPRAR" name="comprar" id="comprarCarrito">
+            </div>
+        </header>
+
+        <main class="main-ayuda">
+            <h1>Para recibir asistencia por algun problema o inconveniente escribanos por privado a cualquiera e las siguientes redes sociales</h1>
+            <div class="container-red-social">
+                <div class="red-social">
+                    <img src="../img/bxl-instagram (1).svg" alt="">
+                </div>
+                <div class="red-social">
+                    <img src="../img/bxl-whatsapp (1).svg" alt="">
+                </div>
+                <div class="red-social">
+                    <img src="../img/bxl-facebook-square.svg" alt="">
+                </div>
+            </div>
+        </main>
+    </div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../js/ayuda.js"></script>
+</body>
+</html>

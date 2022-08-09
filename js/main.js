@@ -158,7 +158,7 @@ const pedirPostBuscador = async (valor) => {
 
     const objetoBuscar = [];
     data.forEach( (modeloBuscar) => {
-        if(modeloBuscar.nombre.includes(valor)){
+        if(modeloBuscar.nombre.includes(valor.toLowerCase())){
             objetoBuscar.push(modeloBuscar)
         }
     })

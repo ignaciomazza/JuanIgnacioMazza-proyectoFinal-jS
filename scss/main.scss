@@ -14,8 +14,8 @@
         justify-content: space-evenly;
         align-items: center;
         .logo{
-            width: 100px;
-            height: 95px;
+            width: 95px;
+            height: 80px;
             img{
                 width: 100%;
                 height: 100%;
@@ -115,15 +115,38 @@
                 margin: 1rem;
                 width: 280px;
                 border-bottom: 1px solid rgb(75, 75, 75);
+                p{
+                    font-size: .8rem;
+                    margin: 0rem .5rem;
+                }
                 img{
                     width: 70px;
                     height: 70px;
+                }
+                .eliminarCarrito{
+                    width: 4rem;
+                    height: 1.8rem;
+                    font-size: .6rem;
+                    background-color: rgb(255, 62, 62);
+                    border: 1px solid white;
+                    color: white;
+                    transition: .8s;
+                    margin: 0rem 0rem;
+                }
+                .eliminarCarrito:hover{
+                    
+                    background-color: white;
+                    color: black;
+                    border: 1px solid white;
+                    cursor: pointer;
+                    transform: scale(1.1);
+
                 }
             }
             input{
                 width: 5rem;
                 height: 2rem;
-                background-color: black;
+                background-color: rgb(0, 0, 0);
                 border: 1px solid black;
                 color: white;
                 transition: .8s;
@@ -198,12 +221,12 @@
     
     .main-index{
         padding: 2rem;
-        height: 80%;
         .container-equipos{
             display: flex;
             justify-content: center;
             align-items: center;
             height: 75%;
+            padding: 3rem 0rem 0rem 0rem;
             .none{
                 display: none;
             }
@@ -234,10 +257,10 @@
         }
         .container-buttons{
             width: 100%;
-            height: 25%;
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            padding: 1rem 0rem 5rem;
             .button{
                 width: 1.3rem;
                 height: 1.3rem;
@@ -269,14 +292,14 @@
             align-items: center;
             flex-direction: column;
             box-shadow: 0px 0px 10px 0px rgb(135, 135, 135);
-            width: 370px;
-            height: 500px;
+            width: 320px;
+            height: 450px;
             img{
-                width: 350px;
-                height: 350px;
+                width: 300px;
+                height: 300px;
             }
             p{
-                font-size: 1.5rem;
+                font-size: 1.3rem;
                 text-align: center;
             }
             .comprar{
@@ -288,8 +311,8 @@
                 input{
                     width: 5rem;
                     height: 2rem;
-                    background-color: black;
-                    border: 1px solid black;
+                    background-color: rgb(115, 183, 255);
+                    border: 1px solid rgb(115, 183, 255);
                     color: white;
                     transition: .8s;
                     
@@ -321,25 +344,15 @@
         flex-direction: column;
         width: 100%;
         .logo-nostros{
-            animation-name: agrandar;
-            animation-duration: 4s;
-            animation-iteration-count: infinite;
+            flex: 70%;
             padding-bottom: 3rem;
-        }
-        @keyframes agrandar{
-            0%{
-                transform: scale(1);
-            }
-            50%{
-                transform: scale(1.08);
-            }
-            100%{
-                transform: scale(1);
-            }
+            height: 500px;
+            width: 500px;
         }
         .texto-nosotros{
+            flex: 30%;
             text-align: center;
-            padding: 0rem 30rem 5rem 30rem;
+            padding: 0rem 15% 5rem 15%;
             h1{
                 font-size: 1.5rem;
                 padding: 0rem 0rem .5rem 0rem;
@@ -368,18 +381,190 @@
             transform: scale(1.1);
         }
     }
-}
+
+    .main-ayuda{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        h1{
+            font-size: 1.5rem;
+            width: 70%;
+            text-align: center;
+            padding: 3rem 0rem 2rem 0rem;
+            font-weight: 300;
+        }
+        .container-red-social{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 70%;
+            padding: 5rem;
+            .red-social{
+                height: 8rem;
+                width: 8rem;
+                transition: 0.6s;
+                img{
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            .red-social:hover{
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+    }  
+} 
 
 @media (max-width: 1300px) {
     .container{
         .main-index{
             .container-equipos{
                 .equipo{
-                    width: 250px;
-                    height: 250px;
+                    width: 220px;
+                    height: 220px;
                 }
             }
         }
     }
 }
 
+@media (max-width: 1000px) {
+    .container{
+        .main-index{
+            .container-equipos{
+                flex-direction: column;
+                padding-top: 0px;
+                .equipo{
+                    width: 300px;
+                    height: 300px;
+                }
+            }
+            .container-buttons{
+                padding: 1rem 0rem 0rem;
+                margin: 1rem 0rem;
+                .button{
+                    width: 1.3rem;
+                    height: 1.3rem;
+                    opacity: .5;
+                    border-radius: 100%;
+                    margin: 0rem 1rem;
+                    transition: .7s;
+                    background-color: black;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 700px){
+    .logo-nostros{
+        animation-name: agrandar;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        padding-bottom: 3rem;
+    }
+    @keyframes agrandar{
+        0%{
+            transform: scale(1);
+        }
+        50%{
+            transform: scale(1.08);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .container{
+        footer{
+            flex-direction: column;
+            height: 55rem;
+            .red-social{
+                img{
+                    height: 8rem;
+                    margin: 1rem 0rem;
+                }
+            }
+        }
+        .main-nosotros{
+            .logo-nostros{
+                height: 350px;
+                width: 350px;
+                img{
+                    height: 350px;
+                    width: 350px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 710px) {
+    .container{
+        header{
+            padding: 1rem 0rem;
+            .logo{
+                display: none;
+                width: 0px;
+            }
+            .container-buscar{
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                .input-buscar{
+                    width: 70%;
+                    border: none;
+                    border-bottom: 1px solid rgb(35, 35, 35);
+                    padding: 0.1rem 0.3rem;
+                    outline: none;
+                    transition: .4s;
+                }
+            }
+            .carrito-menu{
+                width: 2rem;
+                height: 2rem;
+                img{
+                    width: 2rem;
+                        height: 2rem;
+                }
+            }
+            .btn-menu{
+                width: 2rem;
+                height: 2rem;
+                img{
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+        }
+
+        .main-ayuda{
+            h1{
+                font-size: 1.3rem;
+                width: 90%;
+                text-align: center;
+                padding: .5rem;
+                font-weight: 300;
+            }
+            .container-red-social{
+                flex-direction: column;
+                padding: 1rem 0rem;
+                .red-social{
+                    height: 8.5rem;
+                    width: 8.5rem;
+                    margin: .3rem 0rem;
+                    img{
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
